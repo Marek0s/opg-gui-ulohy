@@ -3,26 +3,68 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<HBox xmlns="http://javafx.com/javafx/21"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="sk.spse.uloha2.declarative.Controller"
-      alignment="CENTER"
-      spacing="20">
+<VBox alignment="TOP_CENTER" prefHeight="216.0" prefWidth="365.0" spacing="20" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.spse.uloha2.declarative.Controller">
 
     <padding>
-        <Insets topRightBottomLeft="10" />
+        <Insets bottom="20" left="20" right="20" top="25" />
     </padding>
 
-    <Label text="Počítadlo:" />
+    <children>
 
-    <TextField fx:id="counterField"
-               text="0"
-               editable="false"
-               style="-fx-padding: 10 20 10 20;" />
+        <!-- Užívateľské meno -->
+        <HBox alignment="CENTER_LEFT" spacing="20">
+            <children>
+                <Label style="-fx-text-fill: green; -fx-font-family: Serif;" text="Užívateľské meno:" />
 
-    <Button text="Plus 1"
-            onAction="#incrementCounter" />
-</HBox>
+                <TextField fx:id="menoField" prefHeight="25.0" prefWidth="195.0" promptText="zadaj meno" style="-fx-border-color: green;                                   -fx-font-family: Serif;                                   -fx-background-radius: 7;                                   -fx-border-radius: 7;" />
+            </children>
+        </HBox>
+
+        <!-- Heslo -->
+        <HBox alignment="CENTER_LEFT" spacing="95">
+            <children>
+                <Label style="-fx-text-fill: red; -fx-font-family: Serif;" text="Heslo:" />
+
+                <PasswordField fx:id="hesloField" prefHeight="25.0" prefWidth="185.0" promptText="zadaj heslo" style="-fx-border-color: red;                                       -fx-font-family: Serif;                                       -fx-background-radius: 7;                                       -fx-border-radius: 7;" />
+            </children>
+        </HBox>
+
+        <!-- Pohlavie -->
+        <HBox alignment="CENTER" spacing="20">
+            <children>
+                <Label style="-fx-text-fill: green; -fx-font-family: Serif;" text="Pohlavie:" />
+
+                <RadioButton fx:id="muzRadio" selected="true" style="-fx-text-fill: blue; -fx-font-family: Serif;" text="Muž">
+                    <toggleGroup>
+                        <ToggleGroup fx:id="$pohlavieGroup" />
+                    </toggleGroup></RadioButton>
+
+                <RadioButton fx:id="zenaRadio" style="-fx-text-fill: blue; -fx-font-family: Serif;" text="Žena" toggleGroup="$pohlavieGroup" />
+            </children>
+        </HBox>
+
+        <Separator prefWidth="420" />
+
+        <!-- Tlačidlá -->
+        <HBox alignment="CENTER_RIGHT" spacing="20">
+            <children>
+                <Button onAction="#onRegister" prefWidth="140" style="-fx-text-fill: brown;                                -fx-font-family: Serif;                                -fx-background-radius: 7;                                -fx-border-radius: 7;" text="Registrovať" />
+
+                <Button onAction="#onClose" prefWidth="100" style="-fx-text-fill: brown;                                -fx-font-family: Serif;                                -fx-background-radius: 7;                                -fx-border-radius: 7;" text="Zavrieť" />
+            </children>
+        </HBox>
+
+    </children>
+
+    <fx:define>
+        <ToggleGroup fx:id="pohlavieGroup" />
+    </fx:define>
+</VBox>

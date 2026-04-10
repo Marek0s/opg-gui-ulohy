@@ -1,21 +1,42 @@
 package sk.spse.uloha3.declarative;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Slider;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
-/**
- * Controller pre FXML súbor – obsahuje logiku aplikácie
- */
+import java.awt.Desktop;
+import java.net.URI;
+
 public class Controller {
 
-    private int counter = 0;
+    @FXML
+    private ImageView obrazok;
 
     @FXML
-    private TextField counterField;
+    private Slider slider;
 
     @FXML
-    private void incrementCounter() {
-        counter++;
-        counterField.setText(String.valueOf(counter));
+    private void Vypni() {
+        Platform.exit();
+        System.exit(0);
+    }
+
+    @FXML
+    private void pohyb(MouseEvent event) {
+        obrazok.setRotate(slider.getValue());
+    }
+
+    @FXML
+    private void link() {
+        String url = "https://spse-po.sk/";
+        try {
+            if (Desktop.isDesktopSupported()) {
+                Desktop.getDesktop().browse(new URI(url));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -7,12 +7,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-///
-/// Trieda pre deklaratívne vytvorené GUI
-///
-/// Upravujte hlavne FXML súbor a Controller, nie túto triedu!
-///
-
 public class Application extends javafx.application.Application {
 
     private int counter = 0;

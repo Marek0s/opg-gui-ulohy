@@ -1,0 +1,18 @@
+.root {
+    -fx-background-image: url("calc.jpeg");
+    -fx-background-size: cover;
+}
+
+.label {
+    -fx-text-fill: #930b1e;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+}
+
+.text-field {
+    -fx-text-fill: #930b1e;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-opacity: 0.8;
+    -fx-border-color: #930b1e;
+}
